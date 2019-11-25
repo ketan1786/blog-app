@@ -42,7 +42,7 @@ class BlogDetailView(DetailView):
             instance.post = self.get_object()
             instance.user = request.user
             instance.save()
-            redirect_url = "/detail/{}".format(self.get_object().id)
+            redirect_url = "blog/detail/{}".format(self.get_object().id)
             return redirect(redirect_url)
 
 
