@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_content %}
+    <div class="main">
+        <div class="container">
+            {% for post in posts %}
+                <h1 class="h1-seo"><a href="/blog/detail/{{ post.id }}">{{ post.title }}</a></h1>
+                <a id="a3" href="{{post.id}}/update" ><button type="submit" class="btn btn-success" name="button">Update</button></a>
+                {{ post.body| truncatewords:30| linebreaks }}<a href="/blog/detail/{{ post.id }}">more..</a>
+                <br>
+                <a href="{{post.id}}/delete" ><button type="submmit" class="btn btn-danger" name="button">Delete</button></a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
