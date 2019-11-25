@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body_content %}
+    <h1>blog information update</h1>
+    <form  method="post" class="form-group" >
+      {% csrf_token %}
+        <label for="Inputtitle">Blog-Title: </label>
+        <input class="form-control" type="text" name="title" value="{{update.title}}"><br>
+        <label for="InputBody">blog  body: </label>
+        <textarea class="form-control" name="body" rows="8" cols="80">{{update.body}}</textarea><br>
+        <label for="InputStutus">bog status: </label>
+        <input class="form-control" type="text" name="status" value="{{update.status}}">
+        <input class="btn btn-round" type="submit" value="update record">
+    </form>
+{% endblock %}

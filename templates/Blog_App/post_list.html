@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body_content %}
+    <div class="jumbotron" style="background: #2a2a2e">
+    <h1 class="brand">BLOOM.</h1>
+    <div class="tab-content tab-space">
+    <div class="tab-pane active" id="link1">
+   {% for p in post %}
+       <h1 class="h1-seo"><a href="/blog/detail/{{p.id}}">{{ p.title }}</a></h1>
+       {{ p.body | truncatewords:30 | linebreaks }}<a href="/blog/detail/{{ p.id }}">more..</a>
+    {% endfor %}
+    </div>
+    </div>
+    {% include 'blog_app/pagination.html' with page=post %}
+    </div>
+{% endblock %}

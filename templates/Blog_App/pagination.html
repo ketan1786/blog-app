@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+
+<div class="paginator">
+    <span>Page {{ page.number }} of {{ page.paginator.num_pages }}</span>&nbsp
+    {% if page.has_previous %}
+       <b><a href="?page={{ page.previous_page_number }}" ><i class="tim-icons icon-double-left"></i>&nbsp;BACK</a></b>
+    {% endif %}
+    {% if page.has_next %}
+        <b><a href="?page={{ page.next_page_number }}" >NEXT <i class="tim-icons icon-double-right"></i></a></b>
+    {% endif %}
+    </div>

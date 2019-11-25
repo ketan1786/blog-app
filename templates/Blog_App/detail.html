@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_content %}
+    <div class="jumbotron" style="background: #2a2a2e">
+<h1>{{ post.title }}</h1>
+    <h6>Posted By: {{ post.author }}</h6>
+    <p>{{ post.body }}</p>
+    </div>
+    <h4>comments</h4>
+
+{% for c in comments %}
+    <div class="comment">
+        <a>name: {{ c.name}}</a><br>
+        <!--<a>e-mail:{{ c.email }}</a><br>-->
+        <p>comment :{{ c.comment| linebreaks }}</p><br><br>
+    </div>
+{% empty %}
+    <p>No comments here yet :(</p>
+{% endfor %}
+
+<h3>please add comment</h3>
+{% if comment %}
+    <div class="alert">Your Comment Has Been Added</div>
+{% else %}
+<form  method="post">
+  {{ form|crispy }}
+  {% csrf_token %}
+  <input type="submit" class="btn btn-primary" value="submit comments">
+</form>
+    {% endif %}
+{% endblock body_content %}
